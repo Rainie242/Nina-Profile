@@ -1,0 +1,60 @@
+#header {
+    /* 圖片設定 */
+    width: 100%;
+    height: 100vh;
+    background-image: url(/images/bg10.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    /* 內容排版 */
+    /* 將header建立獨立版面範圍，內容元素不影響這個部分 */
+    display: flow-root;
+}
+
+#header img {
+    width: 12vw;
+    height: 12vw;
+    /* 設定最小寬高 */
+    min-width: 5vw;
+    min-height: 5vh;
+    /* 切圓 */
+    border-radius: 50%;
+    /* 維持比例填滿圓 */
+    object-fit: cover;
+    /* 邊框 */
+    border: 0.5vw solid #B7CDE2;
+
+    /* 置中 */
+    display: block;
+    margin: 10vh auto 0;
+}
+
+@media (max-width:576px) {
+    #header {
+        /* 圖片設定 */
+        width: 100%;
+        height: 30vh;
+        background-image: url(/images/bg10.jpg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+        /* 內容排版 */
+        /* 將header建立獨立版面範圍，內容元素不影響這個部分 */
+        display: flow-root;
+    }
+
+    #header img {
+        width: 12vw;
+        height: 12vw;
+        /* 切圓 */
+        border-radius: 50%;
+        /* 維持比例填滿圓 */
+        object-fit: cover;
+        /* 邊框 */
+        border: 0.5vw solid #B7CDE2;
+
+        /* 置中 */
+        display: block;
+        margin: 5vh auto 0;
+    }
+}
