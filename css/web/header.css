@@ -2,7 +2,7 @@
     /* 圖片設定 */
     width: 100%;
     height: 100vh;
-    background-image: url('/images/bg10.jpg');
+    background-image: url("../../images/bg10.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 
@@ -34,7 +34,7 @@
         /* 圖片設定 */
         width: 100%;
         height: 30vh;
-        background-image: url('/images/bg10.jpg');
+        background-image: url('../../images/bg10.jpg');
         background-size: 100% 100%;
         background-repeat: no-repeat;
 
