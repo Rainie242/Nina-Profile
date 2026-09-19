@@ -2,7 +2,11 @@
     /* 圖片設定 */
     width: 100%;
     height: 100vh;
-    background-image: url("../../images/bg10.jpg");
+    background-image:
+        linear-gradient(to bottom,
+            #dfe6eb00 70%,
+            #dfe6eb),
+        url("../../images/bg10.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 
@@ -29,12 +33,53 @@
     margin: 10vh auto 0;
 }
 
+.btn {
+    width: min(90%, 500px);
+
+    /* 位置 */
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* 排列 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* 按鈕間距 */
+    column-gap: 20px;
+    row-gap: 15px;
+}
+
+.btn button:hover {
+    background-color: #E2BDB8;
+}
+
+.btn button:focus {
+    background-color: #A96C62;
+}
+
+.btn button {
+    font-size: 12px;
+    color: #FFFFFF;
+    background-color: #99B2C9;
+    border: 0.5vw solid #D4E1F2;
+    border-radius: 50px;
+    padding: 0.8vw 3vw;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
 @media (max-width:576px) {
     #header {
         /* 圖片設定 */
         width: 100%;
         height: 30vh;
-        background-image: url('../../images/bg10.jpg');
+        background-image:
+            linear-gradient(to bottom,
+                #dfe6eb00 70%,
+                #dfe6eb),
+            url("../../images/bg10.jpg");
         background-size: 100% 100%;
         background-repeat: no-repeat;
 
@@ -56,5 +101,42 @@
         /* 置中 */
         display: block;
         margin: 5vh auto 0;
+    }
+
+    .btn {
+        width: min(90%, 300px);
+
+        /* 位置 */
+        position: absolute;
+        bottom: 72%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        /* 排列 */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* 按鈕間距 */
+        column-gap: 10px;
+        row-gap: 10px;
+    }
+
+    .btn button:hover {
+        background-color: #E2BDB8;
+    }
+
+    .btn button:focus {
+        background-color: #A96C62;
+    }
+
+    .btn button {
+        font-size: 12px;
+        color: #FFFFFF;
+        background-color: #99B2C9;
+        border: 0.5vw solid #D4E1F2;
+        border-radius: 50px;
+        padding: 0.8vw 3vw;
+        cursor: pointer;
+        transition: 0.25s;
     }
 }

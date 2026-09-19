@@ -1,14 +1,16 @@
 body {
     /*背景設定*/
-    background-image: url('../../images/bg3.png');
+    /* 覆蓋透明漸層*/
+    background-image:url('../../images/bg3.png');
     background-repeat: repeat;
     background-size: 480px 853px;
+
 }
 
 #nina_Web {
     height: 100vh;
     width: 80vw;
-    background-color: rgb(8, 55, 55);
+    /* background-color: rgb(0, 80, 149); */
     /* 上 左右置中 下0 */
     margin: 0 auto;
 }
