@@ -1,4 +1,4 @@
-#header {
+.header {
     /* 圖片設定 */
     width: 100%;
     height: 100vh;
@@ -15,7 +15,7 @@
     display: flow-root;
 }
 
-#header img {
+.header img {
     width: 12vw;
     height: 12vw;
     /* 設定最小寬高 */
@@ -55,7 +55,11 @@
     background-color: #E2BDB8;
 }
 
-.btn button:focus {
+/* .btn button:focus {
+    background-color: #A96C62;
+} */
+
+.btn button.active {
     background-color: #A96C62;
 }
 
@@ -71,72 +75,22 @@
 }
 
 @media (max-width:576px) {
-    #header {
+    .header {
         /* 圖片設定 */
-        width: 100%;
         height: 30vh;
-        background-image:
-            linear-gradient(to bottom,
-                #dfe6eb00 70%,
-                #dfe6eb),
-            url("../../images/bg10.jpg");
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-
-        /* 內容排版 */
-        /* 將header建立獨立版面範圍，內容元素不影響這個部分 */
-        display: flow-root;
     }
 
-    #header img {
-        width: 12vw;
-        height: 12vw;
-        /* 切圓 */
-        border-radius: 50%;
-        /* 維持比例填滿圓 */
-        object-fit: cover;
-        /* 邊框 */
-        border: 0.5vw solid #B7CDE2;
-
+    .header img {
         /* 置中 */
-        display: block;
         margin: 5vh auto 0;
     }
 
     .btn {
         width: min(90%, 300px);
-
         /* 位置 */
-        position: absolute;
         bottom: 72%;
-        left: 50%;
-        transform: translateX(-50%);
-
-        /* 排列 */
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
         /* 按鈕間距 */
         column-gap: 10px;
         row-gap: 10px;
-    }
-
-    .btn button:hover {
-        background-color: #E2BDB8;
-    }
-
-    .btn button:focus {
-        background-color: #A96C62;
-    }
-
-    .btn button {
-        font-size: 12px;
-        color: #FFFFFF;
-        background-color: #99B2C9;
-        border: 0.5vw solid #D4E1F2;
-        border-radius: 50px;
-        padding: 0.8vw 3vw;
-        cursor: pointer;
-        transition: 0.25s;
     }
 }
