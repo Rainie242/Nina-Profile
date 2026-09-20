@@ -6,22 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NinaWeb</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
-<body>
-    <section class="header">
-        <img src="./images/Nina(頭貼).png" alt="">
-        <div class="btn">
-            <button onclick="location.href='./index.html'">ABOUT</button>
-            <button class="active" onclick="location.href='./work.html'">WORK</button>
-            <button onclick="location.href='./growth.html'">GROWTH</button>
-            <button onclick="location.href='./practice.html'">PRACTICE</button>
-            <button onclick="location.href='./messages.html'">MESSAGES</button>
-        </div>
-    </section>
-    <section class="nina_Web">
-
-    </section>
+<body data-page="work">
+    <div id="headerArea"></div>
+    <section class="nina_Web"></section>
+    <div id="footerArea"></div>
 </body>
+
+<script type="module" src="./javascript/javascript.js"></script>
 
 </html>
