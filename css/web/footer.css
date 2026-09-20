@@ -1,0 +1,33 @@
+.footer {
+    /* 圖片設定 */
+    width: 100%;
+    height: 25vh;
+    background-image:
+        linear-gradient(to bottom,
+            #d7e5f29a,
+            #dbe5ef23 27%,
+            #dfe6eb00),
+        url("../../images/footerBG4.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    /* 內容 */
+    color: white;
+    text-align: center;
+    display: block;
+    justify-items: center;
+    align-content: center;
+    line-height: 6vh;
+    font-size: 1.5vw;
+}
+
+@media (max-width:576px) {
+    .footer {
+        /* 圖片設定 */
+        height: 8vh;
+
+        /* 內容 */
+        line-height: 1.5vh;
+        font-size: 2vw;
+    }
+}
