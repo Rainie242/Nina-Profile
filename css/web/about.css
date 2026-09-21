@@ -231,10 +231,11 @@ td a {
     }
 
     .TAT h3 {
-        margin-bottom: 0.5vh;
+        margin: 0;
     }
 
     .tag {
         margin-bottom: 0.5vh;
     }
+
 }
