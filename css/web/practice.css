@@ -89,12 +89,12 @@
 }
 
 /* 開發中 */
-.developing{
+.developing {
     position: relative;
     overflow: hidden;
 }
 
-.developing::after{
+.developing::after {
     content: "developing...";
 
     position: absolute;
@@ -113,6 +113,33 @@
     z-index: 10;
 }
 
-.developing_link{
+.developing_link {
     pointer-events: none;
+}
+
+@media (max-width:576px) {
+    .Card {
+        grid-template-columns: 1fr;
+    }
+
+    .Card a {
+        height: 10vh;
+    }
+
+
+    /* 作品區塊 */
+
+    .practice {
+        height: 35vh;
+        margin: 3vh 0;
+
+        grid-template-columns: 1fr;
+        gap: 0.5vw;
+    }
+
+
+    .practice img {
+        height: 25vh;
+        object-fit: cover;
+    }
 }
