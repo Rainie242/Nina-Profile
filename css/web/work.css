@@ -1,0 +1,67 @@
+.work {
+    border: 0.4vw solid rgb(88, 124, 164, 0.4);
+    border-radius: 4vw;
+    /* 格子分開 */
+    border-collapse: separate;
+    border-spacing: 2vw 1.5vw;
+    /* 外距 */
+    margin: 0 0 7vw;
+}
+
+.work .bold {
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+.work .photo {
+    background-color: transparent;
+    padding: 0;
+}
+
+.work img {
+    width: 23vw;
+    height: 30vw;
+    /* 設定最小寬高 */
+    min-width: 5vw;
+    min-height: 5vh;
+    /* 切圓 */
+    border-radius: 4vw;
+    /* 維持比例填滿圓 */
+    object-fit: cover;
+    background-color: none;
+}
+
+.work td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 1vw 3vw;
+    background-color: rgb(88, 124, 164, 0.1);
+    border-radius: 3vw;
+}
+
+.work h3 {
+    padding: 1vh 0 2vh;
+}
+
+.work li,
+.work p {
+    text-align: left;
+    line-height: 5vh;
+    font-size: 1.7vw;
+}
+
+@media (max-width:576px) {
+    .work {
+        margin: 0 0 4vw;
+    }
+
+    .work img {
+        height: 35vw;
+    }
+
+    .work li,
+    .work p {
+        line-height: 1vh;
+    }
+
+}
