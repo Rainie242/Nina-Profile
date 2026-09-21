@@ -217,6 +217,7 @@ td a {
     .Job_Change_Card {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        gap:3vw;
     }
 
     #Ui,
