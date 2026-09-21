@@ -1,0 +1,240 @@
+table {
+    width: 85vw;
+    margin: auto;
+}
+
+#about td {
+    font-size: 1.8vw;
+    /* 格子高度 */
+    height: 8vh;
+    /* 內距 */
+    padding: 0vh 0vw;
+    vertical-align: middle;
+}
+
+#about .photo_cell {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.photo_cell img {
+    width: 12vw;
+    height: 12vw;
+    /* 設定最小寬高 */
+    min-width: 5vw;
+    min-height: 5vh;
+    /* 切圓 */
+    border-radius: 50%;
+    /* 維持比例填滿圓 */
+    object-fit: cover;
+    /* 邊框 */
+    border: 0.5vw solid #B7CDE2;
+}
+
+.title_small {
+    font-weight: bold;
+    text-align: justify;
+    text-align-last: justify;
+}
+
+.experience_Card {
+    width: min(100%, 100vw);
+    margin: 2vh auto;
+
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 1.5vw;
+}
+
+#Awards {
+    border: 2px solid #B7CDE2;
+    border-radius: 4vw;
+    padding: 0 0 1vw 3vw;
+}
+
+#club {
+    border: 2px solid #B7CDE2;
+    border-radius: 4vw;
+    padding: 0 0 1vw 3vw;
+}
+
+td a {
+    text-decoration-line: none;
+    color: black;
+}
+
+
+.link img {
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+.link a:hover {
+    color: #ff4405;
+}
+
+/* 轉職區 */
+.Job_Change_Card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5vw;
+    /* 外距 */
+    margin: 2vh auto 0;
+    /* margin: 0 auto; */
+}
+
+.Job_Change_Card a {
+    text-decoration-line: none;
+    color: #000;
+}
+
+.Job_Change_Card h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Ui {
+    width: 100%;
+    height: 43vh;
+    /* 邊 */
+    border: 2px solid #B7CDE2;
+    border-radius: 4vw;
+    /* 背景 */
+    background-image:
+        linear-gradient(to bottom,
+            #ffffff73),
+        url("../../images/UI封面.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#Ui:hover {
+    background-image: url("../../images/UI封面.png");
+}
+
+#front {
+    width: 100%;
+    height: 43vh;
+    /* 邊 */
+    border: 2px solid #B7CDE2;
+    border-radius: 4vw;
+    /* 背景 */
+    background-image:
+        linear-gradient(to bottom,
+            #ffffff73),
+        url("../../images/前端封面.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#front:hover {
+    background-image: url("../../images/前端封面.png");
+}
+
+#back {
+    width: 100%;
+    height: 43vh;
+    /* 邊 */
+    border: 2px solid #B7CDE2;
+    border-radius: 4vw;
+    /* 背景 */
+    background-image:
+        linear-gradient(to bottom,
+            #ffffff73),
+        url("../../images/後端封面.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#back:hover {
+    background-image: url("../../images/後端封面.png");
+}
+
+
+/* 技術與工具 */
+#TAT {
+    font-size: 2.5vw;
+    font-weight: bold;
+    text-align: center;
+    padding: 9.6vh 0 1.5vh;
+}
+
+.TAT h3 {
+    margin-bottom: 1vh;
+}
+
+.tag {
+    text-align: center;
+    margin-bottom: 1vh;
+}
+
+.tag span {
+    font-size: 1.8vw;
+    padding: 0.2vw 1vw;
+    color: white;
+    background: #B06B62;
+    border: 1px solid #FFFFFF;
+    border-radius: 0.8vw;
+}
+
+/* phone */
+@media (max-width:576px) {
+    table {
+        width: 85vw;
+        margin: auto;
+    }
+
+    #about td {
+        /* 格子高度 */
+        height: 2vh;
+    }
+
+    .experience_Card {
+        width: min(100%, 100vw);
+        margin: 2vh auto;
+
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 1.5vw;
+    }
+
+    #Awards {
+        border: 2px solid #B7CDE2;
+        border-radius: 4vw;
+        padding: 0 0 1vw 3vw;
+    }
+
+    #club {
+        border: 2px solid #B7CDE2;
+        border-radius: 4vw;
+        padding: 0 0 1vw 3vw;
+    }
+
+    .Job_Change_Card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #Ui,
+    #front,
+    #back {
+        width: 100%;
+        height: 13vh;
+    }
+
+    #TAT {
+        padding: 2vh 0 1vh;
+    }
+
+    .TAT h3 {
+        margin-bottom: 0.5vh;
+    }
+
+    .tag {
+        margin-bottom: 0.5vh;
+    }
+}

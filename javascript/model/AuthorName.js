@@ -1,4 +1,4 @@
 export function AuthorName() {
-    let AuthorName = '柔恩';
+    let AuthorName = '妮娜';
     $('#AuthorName').text(AuthorName);
 }

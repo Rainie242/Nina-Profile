@@ -55,10 +55,6 @@
     background-color: #E2BDB8;
 }
 
-/* .btn button:focus {
-    background-color: #A96C62;
-} */
-
 .btn button.active {
     background-color: #A96C62;
 }
