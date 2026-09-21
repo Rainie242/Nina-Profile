@@ -1,0 +1,52 @@
+.growth {
+    border: 0.4vw solid rgb(88, 124, 164, 0.4);
+    border-radius: 4vw;
+    /* 格子分開 */
+    border-collapse: separate;
+    border-spacing: 2vw 1.5vw;
+    /* 外距 */
+    margin: 0 0 7vw;
+    /* 修正左右比例設定 */
+    table-layout: fixed;
+}
+
+/* 修正左右比例設定 */
+.growth td:first-child {
+    width: 38%;
+}
+
+.growth .bold {
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+.growth td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 1vw 3vw;
+    background-color: rgb(88, 124, 164, 0.1);
+    border-radius: 3vw;
+}
+
+.growth h3 {
+    padding: 1vh 0 2vh;
+}
+
+.growth li,
+.growth p {
+    text-align: left;
+    line-height: 8vh;
+    font-size: 1.7vw;
+}
+
+@media (max-width:576px) {
+    .growth {
+        margin: 0 0 4vw;
+    }
+
+    .growth li,
+    .growth p {
+        line-height: 1vh;
+    }
+
+}
