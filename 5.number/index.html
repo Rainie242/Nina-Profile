@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數字產生器</title>
+</head>
+
+<style>
+    /* share */
+    h1 {
+        display: flex;
+        justify-content: center;
+        font-size: 4vw;
+    }
+
+    /* id */
+    #back {
+        position: absolute;
+        width: 100%;
+        max-width: 4.5vw;
+        height: auto;
+        margin: 1vw 0 0 1vw;
+        border: none;
+    }
+
+    #num {
+        display: grid;
+        grid-template-columns: repeat(8, 8vw);
+
+        gap: 1vw;
+
+        justify-content: center;
+
+        width: 90%;
+        margin: 0 auto;
+
+        font-size: 3vw;
+    }
+
+    #num span {
+        width: 8vw;
+        height: 6vw;
+        border: 1px solid rgb(96, 96, 96);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <a href="../practice.html"><img id="back" src="../images/back.png" alt=""></a>
+    <h1>數字產生器</h1>
+    <div id="num"></div>
+
+</body>
+
+<script>
+    let Result = document.getElementById("num");
+    let sNum = parseInt(prompt("請輸入亂數產生器起始值:"));
+    let eNum = parseInt(prompt("請輸入亂數產生器結束值:"));
+    let qNum = parseInt(prompt("請輸入亂數產生數量:"));
+
+    function RandomNumber() {
+        let rang = [];
+        let result = [];
+
+        if (sNum > eNum) {
+            Result.innerHTML = "起始值不能大於結束值"
+            return;
+        }
+
+        if (qNum > (eNum - sNum + 1)) {
+            Result.innerHTML = "數量超過可生成範圍";
+            return;
+        }
+
+        for (let i = sNum; i <= eNum; i++) {
+            rang.push(i);
+        }
+
+        for (let i = 0; i < qNum; i++) {
+            let index = Math.floor(Math.random() * rang.length);
+            result.push(rang[index]);
+            rang.splice(index, 1);
+        }
+        Result.innerHTML = result.map(num => {
+            return "<span>" + num + "</span>";
+        }).join("");
+    }
+
+    RandomNumber();
+</script>
+
+</html>

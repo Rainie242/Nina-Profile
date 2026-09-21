@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計算機</title>
+</head>
+
+<style>
+    /* share */
+    h1 {
+        display: flex;
+        justify-content: center;
+        font-size: 4vw;
+    }
+
+    /* class */
+    .btn {
+        border: none;
+        background: none;
+        padding: 0;
+        /* 鼠標改點及圖示 */
+        cursor: pointer;
+    }
+
+    /* id */
+    #back {
+        position: absolute;
+        width: 100%;
+        max-width: 4.5vw;
+        height: auto;
+        margin: 1vw 0 0 1vw;
+        border: none;
+    }
+
+    #calculator {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5vw;
+        padding: 1.5vw;
+
+        border: 0.5vw solid rgb(241, 249, 253);
+        background-color: rgb(218, 235, 246);
+        border-radius: 4.5vw;
+
+        width: 28%;
+        height: auto;
+
+        justify-items: center;
+        margin: 0 auto;
+    }
+
+    .btn img {
+        width: 100%;
+        height: auto;
+        /* 設定0.15秒完成 */
+        transition: 0.15s;
+    }
+
+    /* 滑到物件上的效果 */
+    .btn:hover image {
+        /* y軸往上移動3px */
+        transform: translateY(-2px);
+        filter: drop-shadow(0 6px 5px rgba(0, 0, 0, 0.25));
+    }
+
+    /* 點擊下去的效果 */
+    .btn:active img {
+        transform: translateY(2px);
+        filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+    }
+
+    #result {
+        grid-column: 1/5;
+        width: 95%;
+        height: auto;
+        background-color: #fff;
+        border-radius: 1.5vw;
+        margin: 1vw 1.5vw;
+
+        font-size: 5vw;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: right;
+        box-sizing: border-box;
+        padding: 0 1vw;
+
+    }
+
+    /* class */
+</style>
+
+<body>
+    <a href="../practice.html"><img id="back" src="../images/back.png" alt=""></a>
+    <h1>計算機</h1>
+    <div id="calculator">
+        <div id="result">0</div>
+        <button class="btn" data-value="1" data-type="number"><img src="image/keyboard-1.svg" alt=""></button>
+        <button class="btn" data-value="2" data-type="number"><img src="image/keyboard-2.svg" alt=""></button>
+        <button class="btn" data-value="3" data-type="number"><img src="image/keyboard-3.svg" alt=""></button>
+        <button class="btn" data-value="+" data-type="operator"><img src="image/keyboard-11.svg" alt=""></button>
+        <button class="btn" data-value="4" data-type="number"><img src="image/keyboard-4.svg" alt=""></button>
+        <button class="btn" data-value="5" data-type="number"><img src="image/keyboard-5.svg" alt=""></button>
+        <button class="btn" data-value="6" data-type="number"><img src="image/keyboard-6.svg" alt=""></button>
+        <button class="btn" data-value="-" data-type="operator"><img src="image/keyboard-12.svg" alt=""></button>
+        <button class="btn" data-value="7" data-type="number"><img src="image/keyboard-7.svg" alt=""></button>
+        <button class="btn" data-value="8" data-type="number"><img src="image/keyboard-8.svg" alt=""></button>
+        <button class="btn" data-value="9" data-type="number"><img src="image/keyboard-9.svg" alt=""></button>
+        <button class="btn" data-value="*" data-type="operator"><img src="image/keyboard-13.svg" alt=""></button>
+        <button class="btn" data-value="0" data-type="reset"><img src="image/keyboard-16.svg" alt=""></button>
+        <button class="btn" data-value="0" data-type="number"><img src="image/keyboard-10.svg" alt=""></button>
+        <button class="btn" data-value="=" data-type="equal"><img src="image/keyboard-15.svg" alt=""></button>
+        <button class="btn" data-value="/" data-type="operator"><img src="image/keyboard-14.svg" alt=""></button>
+    </div>
+
+</body>
+
+<script>
+    let btn = document.querySelectorAll(".btn");
+    let result = document.getElementById("result");
+    // 啟用閉包
+    let calculator = cal();
+
+    btn.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            calculator.call(this, this.dataset.value);
+        })
+    })
+
+    // 用閉包，儲存變數
+    function cal() {
+        let number = "";
+        let operator = "";
+        let sum = null;
+        return function (btn) {
+            // 如果按reset，全部重製
+            if (this.dataset.type == "reset") {
+                number = "";
+                operator = "";
+                sum = null;
+                result.innerHTML = "0";
+            }
+            // 如果type是number，直接加進字串，不用轉成數字(要運算再轉)。
+            else if (this.dataset.type == "number") {
+                if (number.length < 9) {
+                    number += btn;
+                    result.innerHTML = number;
+                }
+            }
+            else {
+                // 如果連續按運算符號，新符號蓋掉舊符號。
+                if (number == "") {
+                    operator = this.dataset.value;
+                    return;
+                }
+                // 如果是第一個值，先存進sum，以防0/2這種發生。
+                let Num = parseInt(number);
+                if (sum == null) {
+                    sum = Num;
+                }
+                // 判斷運算符號
+                else {
+                    switch (operator) {
+                        case "+":
+                            sum += Num;
+                            break;
+                        case "-":
+                            sum -= Num;
+                            break;
+                        case "*":
+                            sum *= Num;
+                            break;
+                        case "/":
+                            sum /= Num;
+                            break;
+                    }
+                }
+
+                operator = this.dataset.value;
+                if (String(sum).length > 9) {
+                    result.innerHTML = sum.toExponential(3);
+                }
+                else {
+                    result.innerHTML = sum;
+                }
+                number = "";
+            }
+        }
+    }
+</script>
+
+
+</html>

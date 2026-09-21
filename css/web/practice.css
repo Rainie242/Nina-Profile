@@ -1,0 +1,118 @@
+.Card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5vw;
+    /* 外距 */
+    margin: 2vh auto 0;
+    /* margin: 0 auto; */
+}
+
+.Card a {
+    /* 字 */
+    font-size: 1.8vw;
+    font-weight: bold;
+    text-decoration-line: none;
+    color: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 43vh;
+    /* 邊 */
+    border-radius: 4vw;
+    /* 背景 */
+    background-color: rgb(88 124 164 / 40%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.Card a:hover {
+    background-color: rgb(88 124 164/60%);
+}
+
+/* 作品區塊 */
+.noLine {
+    text-decoration-line: none;
+    color: black;
+}
+
+.practice {
+    height: 47vh;
+    margin: 8vh 0;
+    border-radius: 3vw;
+    background-color: rgb(88 124 164/20%);
+
+    display: grid;
+    grid-template-columns: 35% 65%;
+    gap: 1vw;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+.practice:hover {
+    background-color: rgb(185 112 103 / 20%);
+}
+
+.practice img {
+    width: 100%;
+    height: 47vh;
+    /* display: block; */
+    /* 切圓 */
+    border-radius: 3vw;
+    /* 維持比例填滿圓 */
+    object-fit: cover;
+}
+
+.practice_img {
+    position: relative;
+}
+
+.practice_img h3 {
+    position: absolute;
+    top: 2%;
+    left: 5%;
+}
+
+.practice_content {
+    padding: 1vh 2vw;
+}
+
+.practice_content h3 {
+    text-align: left;
+}
+
+.practice_content p {
+    line-height: 2;
+}
+
+/* 開發中 */
+.developing{
+    position: relative;
+    overflow: hidden;
+}
+
+.developing::after{
+    content: "developing...";
+
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #00000099;
+    color: #fff;
+    font-size: 3vw;
+    font-weight: bold;
+
+    border-radius: 3vw;
+    z-index: 10;
+}
+
+.developing_link{
+    pointer-events: none;
+}

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pingu對對樂</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    /* share */
+    h1 {
+        display: flex;
+        justify-content: center;
+        font-size: 4vw;
+    }
+
+    p {
+        font-size: 2.2vw;
+        color: #fafafa;
+        margin: 0.5vw;
+    }
+
+    /* class */
+    .btn {
+        border: none;
+        background: none;
+        padding: 0;
+        /* 鼠標改點及圖示 */
+        cursor: pointer;
+        /* 3D透視距離 */
+        perspective: 800px;
+    }
+
+    .btn img {
+        width: 100%;
+        height: auto;
+        border-radius: 1vw;
+        /* 設定0.5秒完成 */
+        transition: transform 0.5s;
+        /* transform-style: preserve-3d; */
+    }
+
+    .btn.flip img {
+        /* Y 軸旋轉 180 度 */
+        transform: rotateY(180deg);
+    }
+
+    /* id */
+    #back {
+        position: absolute;
+        width: 100%;
+        max-width: 4.5vw;
+        height: auto;
+        margin: 1vw 0 0 1vw;
+        border: none;
+    }
+
+    /* 控制遊戲區域與遮罩區域重疊 */
+    #game {
+        position: relative;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    /* 遊戲區域 */
+    #pingu {
+        display: grid;
+        grid-template-columns: repeat(4, 6vw);
+        gap: 1vw;
+        padding: 1.5vw;
+
+        background-color: rgb(244, 244, 244);
+        border-radius: 1vw;
+    }
+
+    /* 遮罩區域 */
+    #StartRestart {
+        position: absolute;
+        /* 上下左右都歸0 */
+        inset: 0;
+
+        background-color: rgba(152, 86, 86, 0.457);
+        border-radius: 1vw;
+
+        display: flex;
+        /* 垂直排列 */
+        flex-direction: column;
+        /* 垂直置中 */
+        justify-content: center;
+        /* 水平置中 */
+        align-items: center;
+        /* 兩個區域重疊 */
+        z-index: 2;
+    }
+
+    #start {
+        width: 8vw;
+        height: 3.8vw;
+        font-size: 2.2vw;
+        border-radius: 1vw;
+        background-color: #fbf0f0;
+        border-color: rgb(220, 34, 34);
+        color: rgb(123, 35, 35);
+        cursor: pointer;
+    }
+
+    /* 時間條外框 */
+    #timeBox {
+        width: 30vw;
+        height: 1.5vw;
+        margin: 1vw auto;
+
+        background-color: #b3b2b2;
+        border-radius: 1vw;
+        overflow: hidden;
+    }
+
+    /* 時間條 內進度*/
+    #timeBar {
+        width: 100%;
+        height: 100%;
+
+        background-color: #3e3e3f;
+        border-radius: 1vw;
+    }
+
+    /* 動畫效果 */
+    .countdown {
+        animation: countdown 30s linear forwards;
+    }
+
+    @keyframes countdown {
+        from {
+            width: 100%;
+        }
+
+        to {
+            width: 0%;
+        }
+    }
+</style>
+
+<body>
+    <a href="../practice.html"><img id="back" src="../images/back.png" alt=""></a>
+    <h1>Pingu對對樂</h1>
+    <div id="game">
+        <div id="StartRestart">
+            <button id="start">Start</button>
+        </div>
+        <div id="pingu">
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+            <button class="btn"><img src="images/pingu-01.svg" alt=""></button>
+        </div>
+        <div id="timeBox">
+            <div id="timeBar"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let btns = document.querySelectorAll(".btn");
+    let images = {
+        1: "images/pingu-02.svg",
+        2: "images/pingu-03.svg",
+        3: "images/pingu-04.svg",
+        4: "images/pingu-05.svg",
+        5: "images/pingu-06.svg",
+        6: "images/pingu-07.svg",
+        7: "images/pingu-08.svg",
+        8: "images/pingu-09.svg"
+    }
+    let timeout;
+    let count;
+
+    function again() {
+        let value = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+        let temp = [];  //拿來放重新排序的value
+
+        // 亂數重新排序每張的序號
+        while (value.length > 0) {
+            let j = Math.floor(Math.random() * value.length);
+            temp.push(value[j]);
+            value.splice(j, 1);
+        }
+
+        // 將新的序號依序排到位置
+        btns.forEach(function (btn, index) {
+            btn.dataset.value = temp[index];
+        })
+    }
+
+
+    $(document).on("click", '#start', function () {
+        // 刪除上一次的30秒
+        clearTimeout(timeout);
+        // 將遮罩隱藏
+        $("#StartRestart").hide();
+        // 配對成功次數歸零
+        count = 0;
+        // 顯示被隱藏的卡片
+        $("#pingu .btn")
+            // 將配對成功隱藏的牌的css打開
+            .css("visibility", "visible")
+            // 不要翻牌效果
+            .removeClass("flip")
+            // 重設備面圖片
+            .html('<img src = "images/pingu-01.svg" alt="">');
+        // 重新洗牌
+        again();
+        // 重設翻牌事件
+        pingu();
+
+        // 重新播放倒數計時器
+        $("#timeBar").removeClass("countdown");
+
+        // 重新讀取動畫
+        void $("#timeBar")[0].offsetWidth;
+        $('#timeBar').addClass("countdown");
+
+        // 計時器倒數30秒$倒數結束畫面
+        timeout = setTimeout(function () {
+            $("#StartRestart").html(`
+                <p>時間到!</p>
+                <p>完成:${count}組</p>
+                <button id="start">Start</button>
+            `).show();
+            // 這裡以毫秒計算，1秒=1000毫秒
+        }, 30000);
+    });
+
+    // 使用閉包保存翻牌遊戲狀態
+    function pingu() {
+        let firstCard = null;
+        let secCard = null;
+        let lock = false;
+        btns.forEach(function (btn) {
+            btn.onclick = function () {
+                // 限制不能連續點
+                if (lock == true) {
+                    return;
+                }
+                // 不能點同一張牌
+                if (this == firstCard) {
+                    return;
+                }
+                // 在牌上加入類別flip，使用flip的翻牌css
+                let card = this;
+                this.classList.add("flip");
+                setTimeout(function () {
+                    card.innerHTML = `<img src="${images[card.dataset.value]}" alt="">`
+                }, 250);
+
+                // 第一張牌
+                if (firstCard == null) {
+                    firstCard = this;
+                }
+                // 第二章牌後開始判斷
+                else {
+                    secCard = this;
+                    // 兩張牌都有值時上鎖
+                    lock = true;
+
+                    // 配對成功
+                    if (firstCard.dataset.value == secCard.dataset.value) {
+                        count++;
+                        // 設定1秒後執行
+                        setTimeout(function () {
+                            // 將位置保留，牌隱藏
+                            firstCard.style.visibility = "hidden";
+                            secCard.style.visibility = "hidden";
+                            // 將值設定回空值
+                            firstCard = null;
+                            secCard = null;
+                            // 執行完將鎖打開
+                            lock = false;
+                        }, 800)
+                    }
+
+                    // 配對失敗
+                    else {
+                        // 設定0.5秒後執行
+                        setTimeout(function () {
+                            firstCard.classList.remove("flip");
+                            secCard.classList.remove("flip");
+                            setTimeout(function () {
+                                // 將牌重設為背面
+                                firstCard.innerHTML = '<img src="images/pingu-01.svg" alt="">'
+                                secCard.innerHTML = '<img src="images/pingu-01.svg" alt="">'
+                                // 將值設定回空值
+                                firstCard = null;
+                                secCard = null;
+                                // 執行完將鎖打開
+                                lock = false;
+                            }, 250);
+                        }, 1000)
+                    }
+                }
+            }
+        })
+    }
+
+</script>
+
+</html>

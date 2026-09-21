@@ -28,7 +28,6 @@
     border-radius: 4vw;
     /* 維持比例填滿圓 */
     object-fit: cover;
-    background-color: none;
 }
 
 .work td {

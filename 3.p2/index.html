@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜拳遊戲</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<style>
+    /* share */
+    h1 {
+        display: flex;
+        justify-content: center;
+        font-size: 4vw;
+    }
+
+    h3 {
+        display: flex;
+        justify-content: center;
+    }
+
+    img {
+        width: 100%;
+        max-width: 100px;
+        height: auto;
+        /* border: 2px solid black; */
+        cursor: pointer;
+    }
+
+    /* id */
+    #back {
+        position: absolute;
+        width: 100%;
+        max-width: 4.5vw;
+        height: auto;
+        margin: 1vw 0 0 1vw;
+        border: none;
+    }
+
+    #choose {
+        /* 使用grid排版 */
+        display: grid;
+        /* repeat(幾個,距離多少) */
+        grid-template-columns: repeat(3, auto);
+        /* 內容物在格子內置中 */
+        justify-items: center;
+        /* 間隙 */
+        gap: 5%;
+
+        /* 左右留白10% ，調整左右內距*/
+        padding: 0 10%;
+        /* 內距調整 */
+        box-sizing: border-box;
+    }
+
+    #user {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-items: center;
+        gap: 5%;
+
+        box-sizing: border-box;
+        padding: 0 20%;
+        /* margin: 10px 0; */
+    }
+
+    #userAcom {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-items: center;
+        gap: 5%;
+
+        box-sizing: border-box;
+        padding: 0 20%;
+        margin-top: 18px;
+    }
+
+    #user img {
+        width: 100%;
+        max-width: 100px;
+        height: auto;
+        cursor: default;
+    }
+
+    #result {
+        display: block;
+        justify-items: center;
+    }
+
+
+
+    /* class */
+</style>
+
+<body>
+    <a href="../practice.html"><img id="back" src="../images/back.png" alt=""></a>
+    <h1>猜拳遊戲</h1>
+    <h3>請選擇一個與電腦猜拳</h3>
+    <div id="choose">
+        <img id="Scissors" src="images/1.png" alt="">
+        <img id="Stone" src="images/2.png" alt="">
+        <img id="cloth" src="images/3.png" alt="">
+    </div>
+    <div id="userAcom">
+        <h3>你</h3>
+        <h3>電腦</h3>
+    </div>
+    <container id="user">
+    </container>
+    <div id="result">
+        <h3>Result</h3>
+        <p id="WinTimes"></p>
+        <p id="LostTimes"></p>
+        <p id="DrawTimes"></p>
+    </div>
+
+</body>
+
+<script>
+    let WinCount = 0;
+    let LostCount = 0;
+    let drawCount = 0;
+
+    let userAns = $('#user');
+    let WinTimes = $("#WinTimes");
+    let LostTimes = $("#LostTimes");
+    let DrawTimes = $("#DrawTimes");
+
+    // 原程式
+    // let userAns = document.getElementById("user");
+    // let WinTimes = document.getElementById("WinTimes");
+    // let LostTimes = document.getElementById("LostTimes");
+    // let DrawTimes = document.getElementById("DrawTimes");
+
+    function play(user) {
+        // 亂數產生
+        let computer = Math.floor(Math.random() * 3) + 1;
+        // 使用者圖片
+        userAns.html("<img src='images/" + user + ".png'>");
+        // 原程式
+        // userAns.innerHTML = "<img src='images/" + user + ".png'>";
+        // 電腦圖片
+        userAns.append("<img src='images/" + computer + ".png'>");
+        // 原程式
+        // userAns.innerHTML += "<img src='images/" + computer + ".png'>";
+
+        // 判斷輸贏平手
+        if (user == 1) {
+            switch (computer) {
+                case 1:
+                    drawCount++;
+                    break;
+                case 2:
+                    LostCount++;
+                    break;
+                case 3:
+                    WinCount++;
+                    break;
+            }
+        } else if (user == 2) {
+            switch (computer) {
+                case 1:
+                    WinCount++;
+                    break;
+                case 2:
+                    drawCount++;
+                    break;
+                case 3:
+                    LostCount++;
+                    break;
+            }
+        } else {
+            switch (computer) {
+                case 1:
+                    LostCount++;
+                    break;
+                case 2:
+                    WinCount++;
+                    break;
+                case 3:
+                    drawCount++;
+                    break;
+            }
+        }
+        // 列印結果
+        WinTimes.html("Win times:" + WinCount);
+        LostTimes.html("Lost times:" + LostCount);
+        DrawTimes.html("Draw times:" + drawCount);
+        // 原程式
+        // WinTimes.innerHTML = "Win times:" + WinCount;
+        // LostTimes.innerHTML = "Lost times:" + LostCount;
+        // DrawTimes.innerHTML = "Draw times:" + drawCount;
+    }
+
+    $("#Scissors").click(() => play(1));
+    $("#Stone").click(() => play(2));
+    $("#cloth").click(() => play(3));
+    // 原程式
+    // document.getElementById("Scissors").addEventListener("click", function () {
+    //     play(1);
+    // });
+    // document.getElementById("Stone").addEventListener("click", function () {
+    //     play(2);
+    // });
+    // document.getElementById("cloth").addEventListener("click", function () {
+    //     play(3);
+    // });
+</script>
+
+</html>

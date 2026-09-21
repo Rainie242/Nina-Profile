@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_1" data-name="圖層_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 150 150">
+  <!-- Generator: Adobe Illustrator 29.8.10, SVG Export Plug-In . SVG Version: 2.1.1 Build 2)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: url(#_未命名漸層_444);
+      }
+
+      .st1 {
+        fill: #e9f9ff;
+      }
+
+      .st2 {
+        fill: #7f9ca5;
+      }
+    </style>
+    <linearGradient id="_未命名漸層_444" data-name="未命名漸層 444" x1="75.41" y1="7.52" x2="79.13" y2="140.46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".15" stop-color="#f8fcff"/>
+      <stop offset="1" stop-color="#d9f2ff"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <path class="st0" d="M47.51,7.94h59.57c20.57,0,37.28,16.7,37.28,37.28v59.58c0,20.57-16.7,37.28-37.28,37.28h-59.57c-20.57,0-37.28-16.7-37.28-37.28v-59.57C10.23,24.64,26.94,7.94,47.51,7.94Z"/>
+    <path class="st1" d="M107.09,9.94c19.45,0,35.28,15.83,35.28,35.28v59.57c0,19.45-15.83,35.28-35.28,35.28h-59.57c-19.45,0-35.28-15.83-35.28-35.28v-59.57c0-19.45,15.83-35.28,35.28-35.28h59.57M107.09,5.94h-59.57C25.82,5.94,8.23,23.52,8.23,45.21v59.57c0,21.69,17.58,39.28,39.28,39.28h59.57c21.69,0,39.28-17.58,39.28-39.28v-59.57c0-21.69-17.58-39.28-39.28-39.28h0Z"/>
+  </g>
+  <path class="st2" d="M54.84,61.88h44.91v11.07h-44.91v-11.07ZM54.84,77.04h44.91v11.07h-44.91v-11.07Z"/>
+</svg>
