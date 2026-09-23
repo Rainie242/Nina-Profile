@@ -1,4 +1,6 @@
 .work {
+    width: 100%;
+    box-sizing: border-box;
     border: 0.4vw solid rgb(88, 124, 164, 0.4);
     border-radius: 4vw;
     /* 格子分開 */

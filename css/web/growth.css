@@ -1,4 +1,7 @@
 .growth {
+    width: 100%;
+    /* 不讓 padding、邊框額外撐大 */
+    box-sizing: border-box;
     border: 0.4vw solid rgb(88, 124, 164, 0.4);
     border-radius: 4vw;
     /* 格子分開 */
@@ -11,8 +14,12 @@
 }
 
 /* 修正左右比例設定 */
-.growth td:first-child {
+.growth_left {
     width: 38%;
+}
+
+.growth_right {
+    width: 62%;
 }
 
 .growth .bold {
@@ -41,12 +48,16 @@
 
 @media (max-width:576px) {
     .growth {
-        margin: 0 0 4vw;
+        margin: 0 auto 4vw;
+    }
+
+    .growth h3 {
+        padding: 1vh 0 1vh;
     }
 
     .growth li,
     .growth p {
-        line-height: 1vh;
+        line-height: 1.6;
     }
 
 }
