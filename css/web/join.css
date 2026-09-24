@@ -41,6 +41,24 @@ p {
     line-height: 8vh;
 }
 
+#backToTop {
+    display: none;
+    position: fixed;
+    right: 1.5vw;
+    bottom: 1.5vh;
+    z-index: 1000;
+
+    width: 5vw;
+    height: 12vh;
+    font-size: 2.8vw;
+
+    border: none;
+    background-color: rgba(0, 0, 0, 0.333);
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+
 @media (max-width:576px) {
     body {
         /*背景設定*/
@@ -65,5 +83,17 @@ p {
 
     p {
         line-height: 2vh;
+    }
+
+    #backToTop {
+        display: none;
+        position: fixed;
+        right: 1.5vw;
+        bottom: 1.5vh;
+        z-index: 1000;
+
+        width: 7vw;
+        height: 3vh;
+        font-size: 2.8vw;
     }
 }

@@ -1,0 +1,112 @@
+.messages {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.messages>p {
+    margin: 0 22vw;
+    border-radius: 4vw;
+    background-color: rgb(88, 124, 164, 0.1);
+}
+
+.message_Form {
+    margin: 10vh 15vw;
+    padding: 0 0 2vh;
+    border: 2px solid #99B2C9;
+    border-radius: 4vw;
+    background-color: #d4e1f27f;
+}
+
+.messages h2 {
+    padding: 5vh 0 4.7vh;
+}
+
+.message_Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.message_Content input {
+    width: 85%;
+    height: 5.5vh;
+    border-radius: 0.5vw;
+}
+
+.message_Content textarea {
+    width: 85%;
+    border-radius: 0.5vw;
+}
+
+.message_Content button {
+    font-size: 1.5vw;
+    font-weight: 400;
+    border: 2px solid #99B2C9;
+    background-color: #D4E1F2;
+    border-radius: 0.5vw;
+    padding: 1vh 1.5vw;
+    cursor: pointer;
+}
+
+.message_Content button:hover {
+    color: white;
+    border: 2px solid #99B2C9;
+    background-color: rgba(185, 113, 103, 0.793);
+}
+
+.messages_Card {
+    background-color: #d4e1f27f;
+    border: 2px solid #99B2C9;
+    border-radius: 3vw;
+
+    padding: 2.5vh 3vw;
+}
+
+.messages_Card h3 {
+    text-align: left;
+}
+
+.messages_Card p {
+    text-align: left;
+}
+
+.messages_Card img {
+    width: 2vw;
+    display: block;
+    margin-left: auto;
+}
+
+@media (max-width:576px) {
+    .messages {
+        width: 100%;
+    }
+
+    .messages>p {
+        margin: 0 22vw;
+    }
+
+    .message_Form {
+        margin: 2vh 0;
+        padding: 0 0 2vh;
+    }
+
+    .messages h2 {
+        padding: 2vh 0 1.5vh;
+    }
+
+    .message_Content {
+        gap: 10px;
+    }
+
+    .message_Content button {
+        font-size: 2.5vw;
+        padding: 0.2vh 2vw;
+    }
+
+
+    .messages_Card {
+        padding: 1vh 3vw;
+    }
+}
