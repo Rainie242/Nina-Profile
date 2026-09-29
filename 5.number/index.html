@@ -25,6 +25,13 @@
         border: none;
     }
 
+    #Back {
+        padding: 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
     #num {
         display: grid;
         grid-template-columns: repeat(8, 8vw);
@@ -50,7 +57,9 @@
 </style>
 
 <body>
-    <a href="../practice.html"><img id="back" src="../images/back.png" alt=""></a>
+    <button id="Back" type="button" onclick="history.back()">
+        <img id="back" src="../images/back.png" alt="返回">
+    </button>
     <h1>數字產生器</h1>
     <div id="num"></div>
 

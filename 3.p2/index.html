@@ -38,6 +38,13 @@
         border: none;
     }
 
+    #Back{
+        padding: 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
     #choose {
         /* 使用grid排版 */
         display: grid;
@@ -94,7 +101,9 @@
 </style>
 
 <body>
-    <a href="../practice.html"><img id="back" src="../images/back.png" alt=""></a>
+    <button id="Back" type="button" onclick="history.back()">
+        <img id="back" src="../images/back.png" alt="返回">
+    </button>
     <h1>猜拳遊戲</h1>
     <h3>請選擇一個與電腦猜拳</h3>
     <div id="choose">
