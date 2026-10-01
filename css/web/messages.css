@@ -30,15 +30,27 @@
 }
 
 .message_Content input {
-    width: 85%;
+    width: 83%;
     height: 5.5vh;
     border-radius: 0.5vw;
+    border: 1px solid rgb(113, 112, 112);
+    padding: 1vh 1vw;
+    /* 字距 */
+    letter-spacing: 2px;
 }
 
 .message_Content textarea {
     width: 85%;
+    height: 30vh;
     border-radius: 0.5vw;
+    padding: 2vh 0vw 2vh 1vw;
+    line-height: 1.5;
+    /* 字距 */
+    letter-spacing: 2px;
+    /* 設定不能拉寬高 */
+    resize: none;
 }
+
 
 .message_Content button {
     font-size: 1.5vw;
@@ -72,10 +84,19 @@
     text-align: left;
 }
 
+.messages_Card .good_pointer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.good_pointer p{
+    margin:2px 0 0 0;
+}
 .messages_Card img {
     width: 2vw;
-    display: block;
-    margin-left: auto;
+    margin-left: 0;
 }
 
 @media (max-width:576px) {
